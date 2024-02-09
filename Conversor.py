@@ -26,7 +26,7 @@ class Conversor:
     def converter(self):
         dados_request = requests.get(f'https://economia.awesomeapi.com.br/json/last/{self.moeda_inicial}-{self.moeda_final}')
         bid = dados_request.json()
-        return f"{self.valor} {self.moeda_inicial} = {float(bid[f'{self.moeda_inicial}{self.moeda_final}']['bid']) * self.valor} {self.moeda_final}"
+        return f"{self.valor} {self.moeda_inicial} = {float(bid[f'{self.moeda_inicial}{self.moeda_final}']['bid']) * self.valor:.2f} {self.moeda_final}"
 
 
 Conversor(10, 'USD', 'BRL').converter()
